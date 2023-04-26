@@ -1,0 +1,24 @@
+name: "Seybee"
+description: "Analyze Test-Results and Upload them to Seybee"
+inputs:
+  projectName:
+    description: "Name of the Project."
+    required: true
+  path:
+    description: "Path in which the Test-Reports are stored"
+    required: true
+  key-id:
+    description: "Key-ID for the API-Key in Seybee"
+    required: true
+  api-key:
+    description: "API-Key in Seybee"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - analyze
+    - ${{ inputs.path }}
+    - --project-name ${{ inputs.projectName}}
+    - --key-id ${{ inputs.key-id }}
+    - --api-key ${{ inputs.api-key }}
