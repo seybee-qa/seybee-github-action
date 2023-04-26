@@ -19,6 +19,9 @@ runs:
   args:
     - analyze
     - ${{ inputs.path }}
-    - --project-name ${{ inputs.projectName}}
-    - --key-id ${{ inputs.key-id }}
-    - --api-key ${{ inputs.api-key }}
+    - --project-name
+    - ${{ inputs.projectName}}
+    - --key-id
+    - ${{ inputs.key-id }}
+    - --api-key
+    - ${{ inputs.api-key }}
