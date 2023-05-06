@@ -4,6 +4,9 @@ inputs:
   projectName:
     description: "Name of the Project."
     required: true
+  reportName:
+    description: "Name of the Report. E.g. the ID of the Pipeline-Run"
+    required: true
   path:
     description: "Path in which the Test-Reports are stored"
     required: true
@@ -20,7 +23,9 @@ runs:
     - analyze
     - ${{ inputs.path }}
     - --project-name
-    - ${{ inputs.projectName}}
+    - ${{ inputs.projectName }}
+    - --report-name
+    - ${{ inputs.reportName }}
     - --key-id
     - ${{ inputs.key-id }}
     - --api-key
