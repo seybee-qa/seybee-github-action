@@ -15,6 +15,11 @@ Example: Seybee
 Optimally this value changes each run.
 Example: ${{ github.run_number }}
 
+## `reportFormat`
+
+**Required** Format in which the Report-files are created.
+Allowed values: junit4, golang
+
 ## `path`
 
 **Required** The Path which contains the test reports
@@ -53,6 +58,7 @@ jobs:
         with:
           projectName: DemoApp
           reportName: ${{ github.run_number }}
+          reportFormat: junit4
           path: "./target/surefire-reports"
           key-id: ${{ secrets.SEYBEE_KEY_ID }}
           api-key: ${{ secrets.SEYBEE_API_KEY }}
