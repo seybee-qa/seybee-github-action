@@ -7,6 +7,9 @@ inputs:
   reportName:
     description: "Name of the Report. E.g. the ID of the Pipeline-Run"
     required: true
+  reportFormat:
+    description: "Format of the Report. Allowed values: junit4,golang"
+    required: true
   path:
     description: "Path in which the Test-Reports are stored"
     required: true
@@ -22,6 +25,8 @@ runs:
   args:
     - analyze
     - ${{ inputs.path }}
+    - -- report-format
+    - ${{ inputs.reportFormat }}
     - --project-name
     - ${{ inputs.projectName }}
     - --report-name
